@@ -1,10 +1,5 @@
-
 function EditLesson() {
-    return (
-        <div>
-            EditLesson
-        </div>
-    );
+  return <div>EditLesson</div>;
 }
 
 export default EditLesson;

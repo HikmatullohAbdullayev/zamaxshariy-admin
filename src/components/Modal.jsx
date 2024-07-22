@@ -1,80 +1,82 @@
-import React from "react";
+import React from 'react';
+import { Button } from './ui/button';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+
+import Sellect from './Sellect';
+import Radio from './Radio';
 
 const Modal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full">
-      <div className="relative top-20 mx-auto p-5 border max-w-[700px]  shadow-lg rounded-md bg-white">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full "
+    >
+      <div className="relative top-20 mx-auto p-5 border max-w-[700px]  shadow-lg rounded-[12px]  bg-white mobile730:ml-[16px] mobile730:mr-[16px]">
         <div className="mt-3 text-center">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Yangi darslik qo`shish</h3>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            Yangi darslik qo`shish
+          </h3>
           <div className="mt-2 px-7 py-3">
             <form className="grid gap-[20px]">
-              <div className="flex justify-around gap-[20px] ">
-              <div className="mb-[16px] w-[250px]">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="mavzu">
-                  Darsllik mavzusi
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-[8px] px-[12px] text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="mavzu"
-                  type="text"
-                  placeholder="Darslik mavzusini yozing"
-                />
+              <div className="flex justify-around gap-[20px]  mobile768:flex-col mobile768:mx-auto">
+                <div className="mb-[16px] w-[250px] mobile768:max-w-[400px] ">
+                  <Label
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="mavzu"
+                  >
+                    Darsllik mavzusi
+                  </Label>
+                  <Input
+                    className=""
+                    id="mavzu"
+                    type="text"
+                    placeholder="Darslik mavzusini yozing"
+                  />
+                </div>
+                <div className="mb-[16px] w-[250px] ">
+                  <Label
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                    htmlFor="manba"
+                  >
+                    Darsllik manba`si
+                  </Label>
+                  <Input
+                    className=""
+                    id="manba"
+                    type="text"
+                    placeholder="Darslik manbasini yozing"
+                  />
+                </div>
               </div>
-              <div className="mb-[16px] w-[250px]">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="soni">
-                  Darslar soni
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="soni"
-                  type="number"
-                  placeholder="Darslar soni yozing"
-                />
-              </div>
-              </div>
-              
-              <div className="flex justify-around gap-[20px] ">
-              <div className="mb-[16px] w-[250px]">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="manba">
-                  Darsllik manba`si
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-[8px] px-[12px] text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="manba"
-                  type="text"
-                  placeholder="Darslik manbasini yozing"
-                />
-              </div>
-              <div className="mb-[16px] w-[250px]">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="turi">
-                  Darslar turi
-                </label>
-                <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="turi"
-                  type="text"
-                  placeholder="Darslar turi yozing"
-                />
-              </div>
-              </div>
-              
 
-              <button type="submit" className="bg-green-500 hover:bg-green-700  text-white font-bold py-[8px] px-[16px] rounded focus:outline-none focus:shadow-outline">
-                Qo`shish
-              </button>
+              <div className="flex justify-around gap-[20px]  mobile768:flex-col  mobile768:mx-auto">
+                <div className="mb-[16px] w-[250px]">
+                  <Sellect />
+                </div>
 
+                <div className="mb-[16px] w-[250px] ">
+                  <p className="block text-gray-700 text-sm font-bold mb-2">
+                    Darslik holati
+                  </p>
+                  <Radio />
+                </div>
+              </div>
+
+              <Button type="submit">Qo`shish</Button>
             </form>
           </div>
           <div className="items-center px-4 py-3">
-            <button
-              className="absolute top-2 right-2  bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            <Button
+              variant="blue"
+              className="absolute top-2 right-2 "
               type="button"
               onClick={onClose}
             >
               +
-            </button>
+            </Button>
           </div>
         </div>
       </div>

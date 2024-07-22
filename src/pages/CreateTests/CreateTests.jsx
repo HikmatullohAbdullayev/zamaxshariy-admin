@@ -1,10 +1,5 @@
-
 function CreateTests() {
-    return (
-        <div>
-            CreateTests
-        </div>
-    );
+  return <div>CreateTests</div>;
 }
 
 export default CreateTests;
